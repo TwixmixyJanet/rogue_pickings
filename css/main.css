@@ -1,3 +1,7 @@
+/*
+I had to basically revamp the whole thing using the solution code. To me the lesson instructions were not straight forward in what I should manipulate and where it should be done. Leftover margins and paddings that I would have never thought to remove. Specifically how to get the menu to cascade was evading me. etc.
+*/
+
 html {
 	font-size: 16px;
 }
@@ -12,7 +16,6 @@ body {
 
 .container{
 	max-width: 1200px;
-	margin: 0 auto;
 	width: 90%;
 	display: flex;
 	justify-content: center;
@@ -40,33 +43,38 @@ h3 {
 p {
 	font-size: 0.875em;
 	line-height: 21px;
-    padding: 0 30px;
+}
+
+ul {
+    margin: 0;
 }
 
 /*The widths are in a percentage!*/
 /* Twixmixy here - I don't understand what the % amount should be */
 header {
-	height: 110px;
 	border-bottom: 3px solid #77a466;
-	margin: 0 auto;
+	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-flow: row wrap;
 	width: 100%;
 }
 
 header h1 {
-	float: left;
 	margin: 0;
-	padding: 38px 0;
-}
+    padding: 38px 20px 20px 20px; 
+    border-bottom: 3px solid #77a466; 
+    width: 100%;
+  }
+
 header h1 span {
 	color: #77a466;
 }
 
 header nav {
-	float: right;
-	padding: 46px 0;
+    padding: 20px 0; 
+    width: 100%; 
 }
 header nav ul {
 	margin: 0;
@@ -76,8 +84,8 @@ header nav ul li {
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 0.875em;
-	padding: 0 10px;
-	display: inline;
+    padding: 10px 0;
+    list-style: none;
 }
 header nav ul li a{
 	text-decoration: none;
@@ -88,28 +96,17 @@ header nav ul li a{
 /* Twixmixy here - I don't understand what the % amount should be */
 .top-section,
 .bottom-section {
-	margin: 0 auto;
-	clear: both;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-flow: wrap;
-	width: 100%;
 }
 
-.main-image {
-	height: auto;
-	float: left;
-}
 .main-image img {
 	width: 100%;
 	border-bottom: 3px solid #77a466;
 }
 
-.main-title {
-	height: auto;
-	float: left;
-}
 .main-title h2 {
 	text-align: left;
 	padding: 5px 0;
@@ -118,30 +115,14 @@ header nav ul li a{
 .main-title p {
 	padding: 0;
 	font-size: 1em;
-	line-height: 25px;
+	line-height: 1.5625;
 }
 
 .section-one,
 .section-two,
 .section-three {
-	width: 33%;
-	height: auto;
-	float: left;
+	width: 100%;
 	border-top: 1px solid #eee;
-}
-
-.section-one h3 {
-	padding: 10px 0;
-}
-
-.section-two {
-	border-left: 1px solid #eee;
-	border-right: 1px solid #eee;
-}
-
-.section-two h3,
-.section-three h3 {
-	padding: 10px 30px;
 }
 
 .menu {
@@ -156,26 +137,24 @@ header nav ul li a{
 .reviews {
 	color: #333;
 	font-size: 1em;
-	line-height: 21px;
+	line-height: 1.3125;
 }
 
 .address {
 	font-size: 1em;
-	line-height: 24px;
+	line-height: 1.5;
 }
 
 /*The widths are in a percentage!*/
 /* Twixmixy here - I don't understand what the % amount should be */
 footer {
-	height: 50px;
 	border-top: 3px solid #eee;
-	margin: 0 auto;
-	clear: both;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
+    text-align: center;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
 }
 footer span {
 	font-family: 'Galada', cursive;
@@ -184,12 +163,60 @@ footer span {
 	font-size: 0.875em;
 }
 
-@media all and (min-width:768px) {
+@media only screen and (min-width:768px) {
     /* Tablet styles here */
- 
+
+.bottom-section {
+	justify-content: space-between;
+	align-items: flex-start;
+	border-top: 1px solid #eee;
+	}
+
+.section-one,
+.section-two,
+.section-three {
+	border-top: none;
+	flex-basis: 30%;
+}
+
+.section-two {
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+	padding: 0 20px;
+}
 }
  
-@media all and (min-width:1200px) {
+@media only screen and (min-width:1200px) {
     /* Desktop styles here */
- 
+
+	/* I feel like I need the following.... 
+	.section-one,
+	.section-two,
+	.section-three {
+			width: 33%;
+			height: 220px;
+			float: left;
+			border-top: 1px solid #eee;
+		}
+		*/
+
+	header {
+			justify-content: space-between;
+		}
+
+    header h1 {
+        width: 30%;
+        padding: 0;
+        border-bottom: none;
+        text-align: left;
+    }
+
+	header nav {
+        width: 40%;
+    }
+
+	header nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
 }
